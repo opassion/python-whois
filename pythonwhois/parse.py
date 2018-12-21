@@ -993,11 +993,12 @@ def fetch_nic_contact(handle, lookup_server):
 		raise shared.WhoisException("No contact data found in the response.")
 	
 def parse_nic_contact(data):
-	handle_contacts = []
-	for regex in nic_contact_regexes:
-		for segment in data:
-			matches = re.finditer(regex, segment)
-			for match in matches:
-				handle_contacts.append(match.groupdict())
+	return []
+	# handle_contacts = []
+	# for regex in nic_contact_regexes:
+	# 	for segment in data:
+	# 		matches = re.finditer(regex, segment)
+	# 		for match in matches:
+	# 			handle_contacts.append(match.groupdict())
 				
-	return handle_contacts
+	# return handle_contacts
