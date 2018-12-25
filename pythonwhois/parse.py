@@ -513,6 +513,8 @@ def parse_raw_whois(raw_data, normalized=None, never_query_handles=True, handle_
 		# SIDN isn't very standard either. And EURid uses a similar format.
 		match = re.search("Registrar:\n\s+(?:Name:\s*)?(\S.*)", segment)
 		if match is not None:
+			if not "registrar" in data:
+				data["registrar"] = []
 			data["registrar"].insert(0, match.group(1).strip())
 		match = re.search("(?:Domain nameservers|Name servers):([\s\S]*?\n)\n", segment)
 		if match is not None:
